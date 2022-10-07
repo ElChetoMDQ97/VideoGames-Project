@@ -7,7 +7,7 @@ dotenv.config({ path: '../../.env'});
 const api = process.env.API_KEY
 
 const pages = [];
-for(let i = 0; i < 50; i++){
+for(let i = 0; i < 25; i++){
     pages.push(i+1)
 }
 
@@ -109,12 +109,16 @@ const getTags = async () => {
 
 const getVideogames = async () => {
 try{
+
+let found = Genre.findOne({where: {id: 1}})
+
+    if(!found){
     await getGenres()
     await getPlatforms()
     await getRates()
     await getStores()
     await getTags()
-
+     }
 
     let exist = await Videogame.findOne({
         where: {id: 1}
