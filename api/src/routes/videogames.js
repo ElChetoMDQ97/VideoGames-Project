@@ -1,15 +1,15 @@
 const { Router } = require('express');
-const { getVideogames } = require('../middlewares/all.js');
+const { getVideogames, getGenres, getTags, getStores, getRates, getPlatforms } = require('../middlewares/all.js');
 const { Videogame, Tag, Store, Rate, Platform, Genre } = require('../db.js');
 
 const router = Router();
 
 router.get('/', async (req, res) => {
+const { name } = req.query;
 let exist = await Videogame.findOne({where: {id: 1}})
 if(!exist){
     await getVideogames()
 }
-const { name } = req.query;
 
 if(name){
     let videogame = await Videogame.findAll({

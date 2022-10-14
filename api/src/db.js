@@ -18,8 +18,7 @@ let sequelize =
         pool: {
           max: 3,
           min: 1,
-          idle: 10000000,
-          acquire: 12000000,
+          idle: 10000,
         },
         dialectOptions: {
           ssl: {

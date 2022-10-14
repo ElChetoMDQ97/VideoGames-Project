@@ -190,8 +190,9 @@ apiUrls.map(async videogame =>
            await newVideoGame.addTags(idsT);
         
     })
+    return console.log('Creation process done successfully')
 }
-return console.log('Creation process done successfully')
+return console.log('Verification process done successfully')
 }
 catch(e){console.log(e)}
 }
